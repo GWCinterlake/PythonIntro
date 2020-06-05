@@ -8,6 +8,7 @@ year=input("What year is it? ")
 pw = input("Let's test your password! Type it in: ")
 #strip pw, lower case it
 pwClean = pw.strip().lower()
+print(pwClean)
 #for loop
 x=0
 weak=0
@@ -15,30 +16,48 @@ length=len(dictList)
 word=0
 yrList=[]
 yearfind=0
-for bday in range(bday, year+1):
-    yrList.append(bday)
-    bday+=1
+year1=int(year)
+bday1=int(bday)
+for bday1 in range(bday1, year1+1):
+    yrList.append(bday1)
+    bday1+=1
 #finds if identifiable
 for i in dictList:
-    iClean=i.strip().lower()
+    n=0
+    iClean=dictList[n].strip().lower()
     if iClean in pwClean:
         weak+=1
         word+=1
-        iNew=iClean+yrList[i].strip()
+        print(n)
+        print(weak)
+        print(word)
+        iNew=iClean+yrList[n]
         if iNew in pwClean:
             weak+=1
             yearfind+=1
+            print(weak)
+            print(yearfind)
     else:
-        iNew=iClean+yrList[i].strip()
+        iNew=iClean+str(yrList[n])
+        print(iNew)
         if iNew in pwClean:
             weak+=1
             yearfind+=1
+            print(weak)
+            print(yearfind)
         else:
             x+=1
+            print(x)
+
+print(n)
+print(x)
+print(weak)
+print(word)
+print(yearfind)
 if yearfind>0:
     print("We found this year in your password")
-if bdayfind>0:
-    print("We found your birth year in your password")
+#if bdayfind>0:
+    #print("We found your birth year in your password")
 if word>0:
     print("We found ",word," words in your password.")
 if weak > 0:
